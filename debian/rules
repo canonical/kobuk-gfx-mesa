@@ -130,7 +130,7 @@ else
 
 	# Build rusticl for archs where rustc is available
 	ifneq (,$(filter $(DEB_HOST_ARCH), $(RUSTICL_ARCHS)))
-		confflags_GALLIUM += -Dgallium-rusticl=true
+		confflags_GALLIUM += -Dgallium-rusticl=false
 	endif
 
 	ifneq (,$(filter $(DEB_HOST_ARCH), $(NVK_ARCHS)))
@@ -285,14 +285,14 @@ override_dh_install:
     endif
   endif
 
-  ifneq (,$(filter $(DEB_HOST_ARCH), $(RUSTICL_ARCHS)))
-	install -m755 -d debian/mesa-opencl-icd/etc/OpenCL/vendors
-	mv debian/tmp/etc/OpenCL/vendors/rusticl.icd \
-	   debian/mesa-opencl-icd/etc/OpenCL/vendors
-	install -m755 -d debian/mesa-opencl-icd/usr/lib/${DEB_HOST_MULTIARCH}/
-	mv debian/tmp/usr/lib/${DEB_HOST_MULTIARCH}/libRusticlOpenCL* \
+  #ifneq (,$(filter $(DEB_HOST_ARCH), $(RUSTICL_ARCHS)))
+  #	install -m755 -d debian/mesa-opencl-icd/etc/OpenCL/vendors
+  #	mv debian/tmp/etc/OpenCL/vendors/rusticl.icd \
+  #	   debian/mesa-opencl-icd/etc/OpenCL/vendors
+  #	install -m755 -d debian/mesa-opencl-icd/usr/lib/${DEB_HOST_MULTIARCH}/
+  #	mv debian/tmp/usr/lib/${DEB_HOST_MULTIARCH}/libRusticlOpenCL* \
 	   debian/mesa-opencl-icd/usr/lib/${DEB_HOST_MULTIARCH}/
-  endif
+  #endif
 
 	dh_install -a
 

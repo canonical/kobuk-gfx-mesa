@@ -1,3 +1,9 @@
+mesa (24.2.2-0ubuntu1~24.04~ppa1) noble; urgency=medium
+
+  * Change to Ubuntu Noble
+
+ -- Shane McKee <shane.mckee@canonical.com>  Mon, 09 Sep 2024 18:28:30 +0800
+
 mesa (24.2.2-1) unstable; urgency=medium
 
   * New upstream release.
